@@ -5,4 +5,4 @@ El mejor equipo de Misión TIC att: Nico
 ConsultorioOnline
 Pedro Ortiz
 
-Hola Equipo, debemos adelantar el sprint 2 !!
+Ya entendí !!
