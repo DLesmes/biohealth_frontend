@@ -5,4 +5,4 @@ El mejor equipo de Misión TIC att: Nico
 ConsultorioOnline
 Pedro Ortiz
 
-Ya entendí !!
+Bienvenidos cuchos !!
