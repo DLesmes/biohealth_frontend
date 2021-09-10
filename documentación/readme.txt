@@ -1,0 +1,1 @@
+En esta carpeta se almacena toda la documentación del proyecto.

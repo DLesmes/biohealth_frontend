@@ -1,0 +1,1 @@
+Carpeta creada para almacenar la documentación del software
