@@ -1,10 +1,6 @@
 # ConsultorioOnline_G1S33
 
-El mejor equipo de Misión TIC att: Nico
+Se crearon 2 carpetas:
 
-ConsultorioOnline
-Pedro Ortiz
-
-Bienvenidos cuchos !!
-
-Bienvenid@s Here we can add all the documentation
+- consultorio-frontend -> carpeta en donde se encontrará todo lo relacionado a Angular y el frontend
+- consultorio-backend -> carpeta en donde se alojará todo lo relacionado a Java y le backend
