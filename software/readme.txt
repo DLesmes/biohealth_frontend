@@ -1,1 +1,0 @@
-Carpeta creada para almacenar el código fuente del proyecto.
