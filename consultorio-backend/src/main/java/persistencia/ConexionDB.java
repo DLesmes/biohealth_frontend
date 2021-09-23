@@ -28,13 +28,13 @@ public class ConexionDB {
         DB_driver="com.mysql.cj.jdbc.Driver";
         if(local){
             host="localhost:3306";
-            db="S33Prueba";
+            db="S33Grupo1";
             url="jdbc:mysql://"+host+"/"+db;
             username="root";
             password="root";
         }else{
             host="167.99.168.84:3306";
-            db="S33Prueba";
+            db="S33Grupo1";
             url="jdbc:mysql://"+host+"/"+db;
             username="mision";
             password="tics";
