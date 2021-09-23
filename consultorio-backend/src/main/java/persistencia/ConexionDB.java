@@ -105,7 +105,7 @@ public class ConexionDB {
     }
     
     public static void main(String[] args){
-        ConexionBD ejemplo = new ConexionBD();
+        ConexionDB ejemplo = new ConexionDB();
     }
         
 }
