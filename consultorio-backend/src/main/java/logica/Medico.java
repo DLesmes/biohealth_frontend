@@ -9,6 +9,11 @@ package logica;
  *
  * @author Nicolás Rojas
  */
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.sql.SQLException;
+import persistencia.ConexionDB;
+
 public class Medico {
 
     private int idMedico;
@@ -20,11 +25,14 @@ public class Medico {
     private String contraseña;
     private String fotoUsuario;
     private String firma;
-    
-    public Medico(){
+    private ConexionDB conexion;
+
+    public Medico() {
+        this.conexion = new ConexionDB();
     }
 
     public Medico(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String usuario, String contraseña, String fotoUsuario, String firma) {
+        this.conexion = new ConexionDB();
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
         this.primerApellido = primerApellido;
@@ -106,9 +114,62 @@ public class Medico {
     public void setFirma(String firma) {
         this.firma = firma;
     }
-    
-    public void crearMedico(){
-        
+
+    public boolean guardarMedico() {
+        String sentencia = "INSERT INTO medico (primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contraseña, fotoUsuario, firma) "
+                + "VALUES ('" + this.primerNombre + "','" + this.segundoNombre + "','" + this.primerApellido + "','" + this.segundoApellido + "','" + this.usuario + "','" + this.contraseña + "','" + this.fotoUsuario + "','" + this.firma + "');";
+
+        return this.conexion.insertarBD(sentencia);
+    }
+
+    public ArrayList<Medico> listaMedicos() {
+        ArrayList<Medico> listaMedicos = new ArrayList<>();
+        String sentencia = "SELECT * FROM medico;";
+        ResultSet rs = this.conexion.consultarBD(sentencia);
+        Medico medico = new Medico();
+        try {
+            while (rs.next()) {
+                medico.setPrimerNombre(rs.getString("primerNombre"));
+                medico.setSegundoNombre(rs.getString("segundoNombre"));
+                medico.setPrimerApellido(rs.getString("primerApellido"));
+                medico.setSegundoApellido(rs.getString("segundoApellido"));
+                medico.setUsuario(rs.getString("usuario"));
+                medico.setContraseña(rs.getString("contraseña"));
+                medico.setFotoUsuario(rs.getString("fotoUsuario"));
+                medico.setFirma(rs.getString("firma"));
+                listaMedicos.add(medico);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error en la consulta a la bd: " + ex.getMessage());
+        }
+        return listaMedicos;
+    }
+
+    public Medico obtenerMedico() {
+        String sentencia = "SELECT * FROM medico WHERE usuario = '" + this.usuario + "';";
+        ResultSet rs = this.conexion.consultarBD(sentencia);
+        try {
+            if (rs.next()) {
+                this.primerNombre = rs.getString("primerNombre");
+                this.segundoNombre = rs.getString("segundoNombre");
+                this.primerApellido = rs.getString("primerApellido");
+                this.segundoApellido = rs.getString("segundoApellido");
+                this.usuario = rs.getString("usuario");
+                this.contraseña = rs.getString("contraseña");
+                this.fotoUsuario = rs.getString("fotoUsuario");
+                this.firma = rs.getString("firma");
+                return this;
+            } else {
+                return null;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error en la consulta a la bd: " + ex.getMessage());
+            return null;
+        }
     }
     
+    public static void main(String[] args){
+        Medico medico1 = new Medico("Damar", "Nicolas", "Rojas", "Chacón", "NicolasMedico", "1234", "foto1", "firma1");
+        medico1.guardarMedico();
+    }
 }
