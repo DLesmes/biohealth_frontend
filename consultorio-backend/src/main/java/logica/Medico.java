@@ -27,6 +27,11 @@ public class Medico {
     private String firma;
     private ConexionDB conexion;
 
+    @Override
+    public String toString() {
+        return "Medico{" + "primerNombre=" + primerNombre + ", segundoNombre=" + segundoNombre + ", primerApellido=" + primerApellido + ", segundoApellido=" + segundoApellido + ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", fotoUsuario=" + fotoUsuario + ", firma=" + firma + '}';
+    }
+
     public Medico() {
         this.conexion = new ConexionDB();
     }
@@ -168,8 +173,27 @@ public class Medico {
         }
     }
     
-    public static void main(String[] args){
-        Medico medico1 = new Medico("Damar", "Nicolas", "Rojas", "Chacón", "NicolasMedico", "1234", "foto1", "firma1");
-        medico1.guardarMedico();
+    public boolean actualizarMedico(int id){
+        String sentencia = "UPDATE medico SET primerNombre = '" + this.primerNombre + "', segundoNombre = '" + this.segundoNombre 
+                + "', primerApellido = '" + this.primerApellido + "', segundoApellido = '" + this.segundoApellido 
+                + "', usuario = '" + this.usuario + "', contraseña = '" + this.contraseña + "', fotoUsuario = '" + this.fotoUsuario + "', firma = '" + this.firma + "';";
+
+        return this.conexion.actualizarBD(sentencia);
     }
+    
+    public boolean borrarMedico(int idMedico){
+        String sentencia = "DELETE FROM medico WHERE idMedico= " + idMedico;
+        
+        return this.conexion.borrarBD(sentencia);
+    }
+    
+//    public static void main(String[] args){
+//        Medico medico1 = new Medico("Miller", "", "Puentes", "", "MillenPuentes", "111111", "foto1111", "firma2222");
+//        Medico medico2 = new Medico();
+//        medico1.guardarMedico();
+//        medico1.actualizarMedico(1);
+//        medico2.borrarMedico(1);
+//        System.out.println(medico2.listaMedicos());
+//        System.out.println(medico1.obtenerMedico().toString());
+//    }
 }
