@@ -190,13 +190,13 @@ public class Medico {
         return this.conexion.borrarBD(sentencia);
     }
     
-    public static void main(String[] args){
-        Medico medico1 = new Medico("Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba");
-        //Medico medico2 = new Medico();
-        //medico1.guardarMedico();
-        medico1.actualizarMedico(2);
-        //medico2.borrarMedico(1);
-        //System.out.println(medico2.listaMedicos());
-        //System.out.println(medico1.obtenerMedico().toString());
-    }
+//    public static void main(String[] args){
+//        Medico medico1 = new Medico("Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba");
+//        Medico medico2 = new Medico();
+//        medico1.guardarMedico();
+//        medico1.actualizarMedico(2);
+//        medico2.borrarMedico(1);
+//        System.out.println(medico2.listaMedicos());
+//        System.out.println(medico1.obtenerMedico().toString());
+//    }
 }
