@@ -104,9 +104,9 @@ public class ConexionDB {
         return true;
     }
     
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         ConexionDB ejemplo = new ConexionDB();
-    }
+    }*/
         
 }
 

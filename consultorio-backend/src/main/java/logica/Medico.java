@@ -27,6 +27,12 @@ public class Medico {
     private String firma;
     private ConexionDB conexion;
 
+    @Override
+    public String toString() {
+        return "Medico{" + "primerNombre=" + primerNombre + ", segundoNombre=" + segundoNombre + ", primerApellido=" + primerApellido + ", segundoApellido=" + segundoApellido 
+                + ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", fotoUsuario=" + fotoUsuario + ", firma=" + firma + '}';
+    }
+
     public Medico() {
         this.conexion = new ConexionDB();
     }
@@ -117,7 +123,8 @@ public class Medico {
 
     public boolean guardarMedico() {
         String sentencia = "INSERT INTO medico (primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contraseña, fotoUsuario, firma) "
-                + "VALUES ('" + this.primerNombre + "','" + this.segundoNombre + "','" + this.primerApellido + "','" + this.segundoApellido + "','" + this.usuario + "','" + this.contraseña + "','" + this.fotoUsuario + "','" + this.firma + "');";
+                + "VALUES ('" + this.primerNombre + "','" + this.segundoNombre + "','" + this.primerApellido + "','" + this.segundoApellido + "','" 
+                + this.usuario + "','" + this.contraseña + "','" + this.fotoUsuario + "','" + this.firma + "');";
 
         return this.conexion.insertarBD(sentencia);
     }
@@ -168,8 +175,28 @@ public class Medico {
         }
     }
     
+    public boolean actualizarMedico(int id){
+        String sentencia = "UPDATE medico SET primerNombre = '" + this.primerNombre + "', segundoNombre = '" + this.segundoNombre 
+                + "', primerApellido = '" + this.primerApellido + "', segundoApellido = '" + this.segundoApellido 
+                + "', usuario = '" + this.usuario + "', contraseña = '" + this.contraseña + "', fotoUsuario = '" + this.fotoUsuario + "', firma = '" + this.firma 
+                + "' WHERE idMedico = '" + id + "';";
+
+        return this.conexion.actualizarBD(sentencia);
+    }
+    
+    public boolean borrarMedico(int idMedico){
+        String sentencia = "DELETE FROM medico WHERE idMedico= " + idMedico;
+        
+        return this.conexion.borrarBD(sentencia);
+    }
+    
     public static void main(String[] args){
-        Medico medico1 = new Medico("Damar", "Nicolas", "Rojas", "Chacón", "NicolasMedico", "1234", "foto1", "firma1");
-        medico1.guardarMedico();
+        Medico medico1 = new Medico("Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba");
+        //Medico medico2 = new Medico();
+        //medico1.guardarMedico();
+        medico1.actualizarMedico(2);
+        //medico2.borrarMedico(1);
+        //System.out.println(medico2.listaMedicos());
+        //System.out.println(medico1.obtenerMedico().toString());
     }
 }
