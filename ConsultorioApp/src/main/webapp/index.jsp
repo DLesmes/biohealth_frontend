@@ -17,6 +17,7 @@
     </head>
 
     <body>
+        <%@ include file = "navBar.jsp" %>
         <div class="container-fluid" ng-app="ConsultorioApp" ng-controller="medicosController as mc">
             <div class="row">
                 <center>

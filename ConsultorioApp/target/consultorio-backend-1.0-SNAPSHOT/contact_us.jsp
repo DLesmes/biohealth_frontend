@@ -17,6 +17,7 @@
     </head>
 
     <body>
+         <%@ include file = "navBar.jsp" %>
         <div style="background-image: url('assets/fondo_contactus.jpeg');">
             You can specify background images<br>
             <div class="container-fluid" ng-app="ConsultorioApp" ng-controller="medicosController as mc">
