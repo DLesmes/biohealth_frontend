@@ -152,8 +152,8 @@ public class Medico {
         return listaMedicos;
     }
 
-    public Medico obtenerMedico() {
-        String sentencia = "SELECT * FROM medico WHERE usuario = '" + this.usuario + "';";
+    public boolean obtenerMedico(String idMedico) {
+        String sentencia = "SELECT * FROM medico WHERE idMedico = '" + idMedico + "';";
         ResultSet rs = this.conexion.consultarBD(sentencia);
         try {
             if (rs.next()) {
@@ -165,17 +165,17 @@ public class Medico {
                 this.contraseña = rs.getString("contraseña");
                 this.fotoUsuario = rs.getString("fotoUsuario");
                 this.firma = rs.getString("firma");
-                return this;
+                return true;
             } else {
-                return null;
+                return false;
             }
         } catch (SQLException ex) {
             System.out.println("Error en la consulta a la bd: " + ex.getMessage());
-            return null;
+            return false;
         }
     }
     
-    public boolean actualizarMedico(int id){
+    public boolean actualizarMedico(String id){
         String sentencia = "UPDATE medico SET primerNombre = '" + this.primerNombre + "', segundoNombre = '" + this.segundoNombre 
                 + "', primerApellido = '" + this.primerApellido + "', segundoApellido = '" + this.segundoApellido 
                 + "', usuario = '" + this.usuario + "', contraseña = '" + this.contraseña + "', fotoUsuario = '" + this.fotoUsuario + "', firma = '" + this.firma 
@@ -184,8 +184,8 @@ public class Medico {
         return this.conexion.actualizarBD(sentencia);
     }
     
-    public boolean borrarMedico(int idMedico){
-        String sentencia = "DELETE FROM medico WHERE idMedico= " + idMedico;
+    public boolean borrarMedico(String idMedico){
+        String sentencia = "DELETE FROM medico WHERE idMedico = '" + idMedico + "'";
         
         return this.conexion.borrarBD(sentencia);
     }
