@@ -152,6 +152,7 @@ public class Medico {
         return listaMedicos;
     }
 
+    // No se puede modificar el retorno de esta función
     public boolean obtenerMedico(String idMedico) {
         String sentencia = "SELECT * FROM medico WHERE idMedico = '" + idMedico + "';";
         ResultSet rs = this.conexion.consultarBD(sentencia);
