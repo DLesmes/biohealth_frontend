@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 2/10/2021, 1:46:51 a. m.
+    Document   : contact_us
+    Created on : 2/10/2021, 1:46:51 p. m.
     Author     : asf
 --%>
 
@@ -18,16 +18,15 @@
 
     <body>
          <%@ include file = "navBar.jsp" %>
-        <div style="background-image: url('assets/fondo_contactus.jpeg');">
-            You can specify background images<br>
+        <div style="background-image: url('assets/contact_us/fondo_contactus.jpeg');">
             <div class="container-fluid" ng-app="ConsultorioApp" ng-controller="medicosController as mc">
                 <div class="row">
                     <center>
                         <br>
-                        <h1> Bio Healt - Consultorio Online </h1>
+                        <h1><p style="color :#3cb9aa;"> Bio Healt - Consultorio Online Privado</h1>
                         <br>
                         <br>
-                        <h1> Contactanos </h1>
+                        <h1><p style="color :#3cb9aa;"> Contactanos </h1>
                         <br>
                     </center>
                 </div>
@@ -35,19 +34,19 @@
                     <div class="row">
                         <div class="col-md-12">
                             <center>
-                                <img src="assets/location.png" width="5%">
+                                <img src="assets/contact_us/location.png" width="5%">
                                 <span>Bogotá - Medellín - Bucaramanga - Cucuta </span>
                             </center>
                             <center>
-                                <img src="assets/mobile.png" width="5%">
+                                <img src="assets/contact_us/mobile.png" width="5%">
                                 <span> +57 313 491 9012 </span>
                             </center>
                             <center>
-                                <img src="assets/web_.png" width="10%">
+                                <img src="assets/contact_us/web_.png" width="10%">
                                 <span> www.biohealt.com </span>
                             </center>
                             <center>
-                                <img src="assets/WhatsApp-logo.png" width="10%">
+                                <img src="assets/contact_us/WhatsApp-logo.png" width="10%">
                                 <a href=https://wa.me/573134919012> +57 313 491 9012</a>                            
                             </center>
                             <center>

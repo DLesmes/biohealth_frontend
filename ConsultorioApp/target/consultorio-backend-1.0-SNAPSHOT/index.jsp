@@ -18,87 +18,107 @@
 
     <body>
         <%@ include file = "navBar.jsp" %>
-        <div class="container-fluid" ng-app="ConsultorioApp" ng-controller="medicosController as mc">
-            <div class="row">
-                <center>
-                    <br>
-                    <h1> Tu Perfíl </h1>
-                    <br>
-                </center>
-            </div>
-            <div class="container">
+        <div style="background-image: url('assets/index/background_profile.jpeg') ;">
+            <div class="container-fluid" ng-app="ConsultorioApp" ng-controller="medicosController as mc">
                 <div class="row">
-                    <div class="col-md-4">
-                        <center>
-                            <img src="assets/noimage.png" width="100%">
-                        </center>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Primer nombre:</label>
-                                <input type="text" class="form-control" ng-model="mc.primerNombre">
-                            </div>
-                            <div class="col-md-6">
-                                <label>Segundo nombre:</label>
-                                <input type="text" class="form-control" ng-model="mc.segundoNombre">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Primer apellido:</label>
-                                <input type="text" class="form-control" ng-model="mc.primerApellido">
-                            </div>
-                            <div class="col-md-6">
-                                <label>Segundo apellido:</label>
-                                <input type="text" class="form-control" ng-model="mc.segundoApellido">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Nombre de usuario:</label>
-                                <input type="text" class="form-control" ng-model="mc.usuario">
-                            </div>
-                            <div class="col-md-6">
-                                <label>Contraseña:</label>
-                                <input type="password" class="form-control" ng-model="mc.contrasena">
-                            </div>
-                        </div>
-                        <div class="row">
+                    <center>
+                        <br>
+                        <h1> Mi Perfil </h1>
+                        <br>
+                    </center>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
                             <center>
-                                <div class="col-md-6">
-                                    <br>
-                                    <label>Firma:</label>
-                                    <input type="text" class="form-control" ng-model="mc.firma">
-                                </div>
+                                <img src="assets/noimage.png" width="100%">
                             </center>
                         </div>
-                        <div class="row">
-                            <center>
+                        <div class="col-md-8">
+                            <div class="row">
                                 <div class="col-md-6">
-                                    <br>
-                                    <label>Id Médico:</label>
-                                    <input type="text" class="form-control" ng-model="mc.idMedico">
+                                    <label>Primer nombre:</label>
+                                    <input type="text" class="form-control" ng-model="mc.primerNombre">
                                 </div>
-                            </center>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                                <div class="col-md-6">
+                                    <label>Segundo nombre:</label>
+                                    <input type="text" class="form-control" ng-model="mc.segundoNombre">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Primer apellido:</label>
+                                    <input type="text" class="form-control" ng-model="mc.primerApellido">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Segundo apellido:</label>
+                                    <input type="text" class="form-control" ng-model="mc.segundoApellido">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Nombre de usuario:</label>
+                                    <input type="text" class="form-control" ng-model="mc.usuario">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Contraseña:</label>
+                                    <input type="password" class="form-control" ng-model="mc.contrasena">
+                                </div>
+                            </div>
+                            <div class="row">
                                 <center>
-                                    <br>
-                                    <button type="button" class="btn btn-success" ng-click="mc.actualizarMedico()">Actualizar datos</button>
+                                    <div class="col-md-6">
+                                        <br>
+                                        <label>Firma:</label>
+                                        <input type="text" class="form-control" ng-model="mc.firma">
+                                    </div>
                                 </center>
                             </div>
-                            <div class="col-md-6">
+                            <div class="row">
                                 <center>
-                                    <br>                                    
-                                    <button type="button" class="btn btn-danger" ng-click="mc.eliminarMedico()">Eliminar cuenta</button>
+                                    <div class="col-md-6">
+                                        <br>
+                                        <label>Id Médico:</label>
+                                        <input type="text" class="form-control" ng-model="mc.idMedico">
+                                    </div>
                                 </center>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <center>
+                                        <br>
+                                        <button type="button" class="btn btn-success" ng-click="mc.actualizarMedico()">Actualizar datos</button>
+                                    </center>
+                                </div>
+                                <div class="col-md-6">
+                                    <center>
+                                        <br>                                    
+                                        <button type="button" class="btn btn-danger" ng-click="mc.eliminarMedico()">Eliminar cuenta</button>
+                                    </center>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <center>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </center>
         </div>
     </body>
 
