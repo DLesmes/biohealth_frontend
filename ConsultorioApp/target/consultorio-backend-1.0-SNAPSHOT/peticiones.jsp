@@ -35,7 +35,8 @@
             String usuario = request.getParameter("usuario");
             String contrasena = request.getParameter("contrasena");
             String firma = request.getParameter("firma");
-
+            String fotoUsuario = request.getParameter("fotoUsuario");
+            
             Medico m = new Medico();
 
             m.setPrimerNombre(primerNombre);
@@ -45,6 +46,7 @@
             m.setUsuario(usuario);
             m.setContraseña(contrasena);
             m.setFirma(firma);
+            m.setFotoUsuario(fotoUsuario);
 
             if (m.guardarMedico()) {
                 respuesta += "\"guardarMedico\":true";
