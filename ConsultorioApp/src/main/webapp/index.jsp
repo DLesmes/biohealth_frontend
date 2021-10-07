@@ -14,8 +14,8 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="" rel="stylesheet">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <style>html,
-            body * {
+        <style>
+            html,body * {
                 box-sizing: border-box;
                 font-family: 'Open Sans', sans-serif
             }
@@ -543,7 +543,7 @@
                         <input class="form-styling" type="text" ng-model="mc.usuarioLogin">
                         <label for="contraseña">Contraseña</label> 
                         <input class="form-styling" type="password" ng-model="mc.contrasenaLogin"> 
-                        <div class="btn-animate"> <button type="button" class="btn-acceder">Acceder</button> </div>
+                        <div class="btn-animate"> <button type="button" class="btn-acceder" ng-click="mc.accederMedico()">Acceder</button> </div>
                     </div>
 
                     <div class="form-registrarse form-registrarse-left"> 
@@ -582,106 +582,153 @@
                     <div class="profile-photo"></div>
                     <h1 class="welcome"> Bienvenido! </h1> <a class="btn-goback" value="Refresh" onclick="history.go()">Go back</a>
                 </div>
-                </div> <a id="refresh" value="Refresh" onclick="history.go()"> <svg class="refreshicon" version="1.1" id="Capa_1" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 322.447 322.447" style="enable-background:new 0 0 322.447 322.447;" xml:space="preserve">
+            </div> <a id="refresh" value="Refresh" onclick="history.go()"> <svg class="refreshicon" version="1.1" id="Capa_1" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 322.447 322.447" style="enable-background:new 0 0 322.447 322.447;" xml:space="preserve">
                 <path d="M321.832,230.327c-2.133-6.565-9.184-10.154-15.75-8.025l-16.254,5.281C299.785,206.991,305,184.347,305,161.224 c0-84.089-68.41-152.5-152.5-152.5C68.411,8.724,0,77.135,0,161.224s68.411,152.5,152.5,152.5c6.903,0,12.5-5.597,12.5-12.5 c0-6.902-5.597-12.5-12.5-12.5c-70.304,0-127.5-57.195-127.5-127.5c0-70.304,57.196-127.5,127.5-127.5 c70.305,0,127.5,57.196,127.5,127.5c0,19.372-4.371,38.337-12.723,55.568l-5.553-17.096c-2.133-6.564-9.186-10.156-15.75-8.025 c-6.566,2.134-10.16,9.186-8.027,15.751l14.74,45.368c1.715,5.283,6.615,8.642,11.885,8.642c1.279,0,2.582-0.198,3.865-0.614 l45.369-14.738C320.371,243.946,323.965,236.895,321.832,230.327z"></path> </svg> </a>
-            </div>
-            <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-            <script>
-                            $(function () {
-                             $(".btn").click(function () {
-                             $(".form-acceder").toggleClass("form-acceder-left");
-                             $(".form-registrarse").toggleClass("form-registrarse-left");
-                             $(".frame").toggleClass("frame-long");
-                             $(".registrarse-inactive").toggleClass("registrarse-active");
-                             $(".acceder-active").toggleClass("acceder-inactive");
-                             $(".forgot").toggleClass("forgot-left");
-                             $(this).removeClass("idle").addClass("active");
-                             });
-                             });
-                             
-                             $(function () {
-                             $(".btn-registrarse").click(function () {
-                             $(".nav").toggleClass("nav-up");
-                             $(".form-registrarse-left").toggleClass("form-registrarse-down");
-                             $(".success").toggleClass("success-left");
-                             $(".frame").toggleClass("frame-short");
-                             });
-                             });
-                             
-                             $(function () {
-                             $(".btn-acceder").click(function () {
-                             $(".btn-animate").toggleClass("btn-animate-grow");
-                             $(".welcome").toggleClass("welcome-left");
-                             $(".cover-photo").toggleClass("cover-photo-down");
-                             $(".frame").toggleClass("frame-short");
-                             $(".profile-photo").toggleClass("profile-photo-down");
-                             $(".btn-goback").toggleClass("btn-goback-up");
-                             $(".forgot").toggleClass("forgot-fade");
-                             });
-                             });
+        </div>
+        <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+        <script>
+                $(function () {
+                    $(".btn").click(function () {
+                        $(".form-acceder").toggleClass("form-acceder-left");
+                        $(".form-registrarse").toggleClass("form-registrarse-left");
+                        $(".frame").toggleClass("frame-long");
+                        $(".registrarse-inactive").toggleClass("registrarse-active");
+                        $(".acceder-active").toggleClass("acceder-inactive");
+                        $(".forgot").toggleClass("forgot-left");
+                        $(this).removeClass("idle").addClass("active");
+                    });
+                });
 
-                            var app = angular.module('ConsultorioApp', []);
-                            app.controller('medicosController', ['$http', controladorMedico]);
-                            function controladorMedico($http) {
-                                var mc = this;
+                $(document).ready(function () {
+                    $(".form-acceder").toggleClass("form-acceder-left");
+                    $(".form-registrarse").toggleClass("form-registrarse-left");
+                    $(".frame").toggleClass("frame-long");
+                    $(".registrarse-inactive").toggleClass("registrarse-active");
+                    $(".acceder-active").toggleClass("acceder-inactive");
+                    $(".forgot").toggleClass("forgot-left");
+                    $(this).removeClass("idle").addClass("active");
+                });
 
-                                mc.guardarMedico = function () {
-                                    if (mc.fotoUsuario === undefined) {
-                                        mc.fotoUsuario = "No tengo foto";
-                                    }
-                                    var params = {
-                                        proceso: "guardarMedico",
-                                        primerNombre: mc.primerNombre,
-                                        segundoNombre: mc.segundoNombre,
-                                        primerApellido: mc.primerApellido,
-                                        segundoApellido: mc.segundoApellido,
-                                        usuario: mc.usuario,
-                                        contrasena: mc.contrasena,
-                                        firma: mc.firma,
-                                        fotoUsuario: mc.fotoUsuario
-                                    };
-                                    //console.log(params);
-                                    if (mc.primerNombre === undefined ||
-                                            mc.segundoNombre === undefined || mc.primerApellido === undefined ||
-                                            mc.segundoApellido === undefined || mc.usuario === undefined ||
-                                            mc.contrasena === undefined || mc.primerNombre === '' ||
-                                             mc.segundoNombre === '' || mc.primerApellido === '' ||
-                                             mc.segundoApellido === '' || mc.usuario === '' ||
-                                             mc.contrasena === '' || mc.firma === '') {
+                /*$(function () {
+                 $(".btn-registrarse").click(function () {
+                 $(".nav").toggleClass("nav-up");
+                 $(".form-registrarse-left").toggleClass("form-registrarse-down");
+                 $(".success").toggleClass("success-left");
+                 $(".frame").toggleClass("frame-short");
+                 });
+                 });*/
 
-                                        Swal.fire('Ups!', 'Diligencia bien los campos!', 'error');
-                                        mc.fotoUsuario = "";
+                /*$(function () {
+                 $(".btn-acceder").click(function () {
+                 $(".btn-animate").toggleClass("btn-animate-grow");
+                 $(".welcome").toggleClass("welcome-left");
+                 $(".cover-photo").toggleClass("cover-photo-down");
+                 $(".frame").toggleClass("frame-short");
+                 $(".profile-photo").toggleClass("profile-photo-down");
+                 $(".btn-goback").toggleClass("btn-goback-up");
+                 $(".forgot").toggleClass("forgot-fade");
+                 });
+                 });*/
+
+                var app = angular.module('ConsultorioApp', []);
+                app.controller('medicosController', ['$http', controladorMedico]);
+                function controladorMedico($http) {
+                    var mc = this;
+
+                    mc.guardarMedico = function () {
+                        if (mc.fotoUsuario === undefined) {
+                            mc.fotoUsuario = "No tengo foto";
+                        }
+                        var params = {
+                            proceso: "guardarMedico",
+                            primerNombre: mc.primerNombre,
+                            segundoNombre: mc.segundoNombre,
+                            primerApellido: mc.primerApellido,
+                            segundoApellido: mc.segundoApellido,
+                            usuario: mc.usuario,
+                            contrasena: mc.contrasena,
+                            firma: mc.firma,
+                            fotoUsuario: mc.fotoUsuario
+                        };
+                        //console.log(params);
+                        if (mc.primerNombre === undefined ||
+                                mc.segundoNombre === undefined || mc.primerApellido === undefined ||
+                                mc.segundoApellido === undefined || mc.usuario === undefined ||
+                                mc.contrasena === undefined || mc.primerNombre === '' ||
+                                mc.segundoNombre === '' || mc.primerApellido === '' ||
+                                mc.segundoApellido === '' || mc.usuario === '' ||
+                                mc.contrasena === '' || mc.firma === '') {
+
+                            Swal.fire('Ups!', 'Diligencia bien los campos!', 'error');
+                            mc.fotoUsuario = "";
+                        } else {
+                            //console.log(params);
+                            $http({
+                                method: 'POST',
+                                url: 'peticiones.jsp',
+                                params: params
+                            }).then(function (res) {
+                                //console.log(res);
+                                if (res.data.ok === true) {
+                                    if (res.data[params.proceso] === true) {
+                                        mc.primerNombre = '';
+                                        mc.segundoNombre = '';
+                                        mc.primerApellido = '';
+                                        mc.segundoApellido = '';
+                                        mc.usuario = '';
+                                        mc.contrasena = '';
+                                        mc.firma = '';
+                                        mc.fotoUsuario = '';
+                                        Swal.fire('Excelente!', 'Tu perfil ha sido creado!', 'success');
                                     } else {
-                                        //console.log(params);
-                                        $http({
-                                            method: 'POST',
-                                            url: 'peticiones.jsp',
-                                            params: params
-                                        }).then(function (res) {
-                                            //console.log(res);
-                                            if (res.data.ok === true) {
-                                                if (res.data[params.proceso] === true) {
-                                                    mc.primerNombre = '';
-                                                    mc.segundoNombre = '';
-                                                    mc.primerApellido = '';
-                                                    mc.segundoApellido = '';
-                                                    mc.usuario = '';
-                                                    mc.contrasena = '';
-                                                    mc.firma = '';
-                                                    mc.fotoUsuario = '';
-                                                    Swal.fire('Excelente!', 'Tu perfil ha sido creado!', 'success');
-                                                } else {
-                                                    Swal.fire('Ups!', 'No se ha podido crear tu perfil. ' + res.data.registro + '!', 'error');
-                                                }
-                                            } else {
-                                                Swal.fire('Ups!', res.data.errorMsg, 'error');
-                                            }
-                                        });
+                                        Swal.fire('Ups!', 'No se ha podido crear tu perfil. ' + res.data.registro + '!', 'error');
                                     }
-                                };
-                            }
-                            ;
+                                } else {
+                                    Swal.fire('Ups!', res.data.errorMsg, 'error');
+                                }
+                            });
+                        }
+                    };
 
-            </script>
+                    mc.accederMedico = function () {
+                        var params = {
+                            usuario: mc.usuarioLogin,
+                            contrasena: mc.contrasenaLogin,
+                            proceso: "acceder"
+                        };
+                        console.log(params);
+                        $http({
+                            method: 'POST',
+                            url: 'peticiones.jsp',
+                            params: params
+                        }).then(function (res) {
+                            //console.log(res.data.Medicos[0]);
+                            console.log(res);
+                            if (res.data.ok === true) {
+                                if (res.data[params.proceso] === true) {
+                                    var infoMedico = res;//.data.Medicos[0].idMedico;
+                                    Swal.fire('Excelente!', 'Te has logeado', 'success');
+                                    $http({
+                                        method: 'POST',
+                                        url: 'perfil.jsp',
+                                        infoMedico: res
+                                    }).then(function () {
+                                        console.log(infoMedico);
+                                        setTimeout(function () {
+                                            location.href = 'perfil.jsp';
+                                        }, 3000);
+                                    });
+                                } else {
+                                    Swal.fire('Ups!', 'Datos de ingreso incorrectos!', 'error');
+                                }
+                            } else {
+                                Swal.fire('Ups!', res.data.errorMsg, 'error');
+                            }
+                        });
+                    };
+                }
+                ;
+
+        </script>
 
     </body></html>

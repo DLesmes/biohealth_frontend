@@ -5,6 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    //print(request.getParameter("infoMedico"));
+
+%>
 <!DOCTYPE html>
 <html>
 
@@ -23,7 +27,7 @@
                 <div class="row">
                     <center>
                         <br>
-                        <h1> Mi Perfil </h1>
+                        <h1> Mi Perfil</h1>
                         <br>
                     </center>
                 </div>
@@ -125,6 +129,7 @@
     <script>
         var app = angular.module('ConsultorioApp', []);
         app.controller('medicosController', ['$http', controladorMedico]);
+
         function controladorMedico($http) {
             var mc = this;
             mc.eliminarMedico = function () {
@@ -152,7 +157,10 @@
                             }).then(function (res) {
                                 if (res.data.ok === true) {
                                     if (res.data[params.proceso] === true) {
-                                        Swal.fire('Lo sentimos!', 'Tu cuenta ha sido eliminada!', 'error');
+                                        Swal.fire('Lo sentimos!', 'Tu cuenta ha sido eliminada, serás dirigido al loggin!', 'error');
+                                        setTimeout(function () {
+                                            location.href = 'index.jsp';
+                                        }, 3000);
                                     } else {
                                         Swal.fire('Ups!', 'No se ha podido eliminar tu cuenta. ' + res.data.registro + '!', 'warning');
                                     }
@@ -212,9 +220,9 @@
 
     </script>
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-      crossorigin="anonymous"
-    ></script
-
-</html>
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"
+        ></script
+                                        
+                                        </html>

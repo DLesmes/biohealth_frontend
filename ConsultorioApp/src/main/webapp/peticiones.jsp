@@ -12,14 +12,15 @@
 <%@page contentType="application/json;charset=iso-8859-1" language="java" pageEncoding="iso-8859-1" session="true" %>
 
 <%
-
+    
     String respuesta = "{";
 
     List<String> tareas = Arrays.asList(new String[]{
         "listarMedicos",
         "eliminarMedico",
         "guardarMedico",
-        "actualizarMedico"
+        "actualizarMedico",
+        "acceder"
     });
 
     String proceso = request.getParameter("proceso");
@@ -36,7 +37,7 @@
             String contrasena = request.getParameter("contrasena");
             String firma = request.getParameter("firma");
             String fotoUsuario = request.getParameter("fotoUsuario");
-            
+
             Medico m = new Medico();
 
             m.setPrimerNombre(primerNombre);
@@ -71,7 +72,7 @@
         } else if (proceso.equals("listarMedicos")) {
             Medico m = new Medico();
             ArrayList<Medico> lista = m.listaMedicos();
-            respuesta += "\"listarMedicos\"true, \"Medicos\":" + new Gson().toJson(lista);
+            respuesta += "\"listarMedicos\":true, \"Medicos\":" + new Gson().toJson(lista);
 
         } else if (proceso.equals("actualizarMedico")) {
             String primerNombre = request.getParameter("primerNombre");
@@ -93,7 +94,7 @@
             m.setContraseña(contrasena);
             m.setFirma(firma);
             m.setFotoUsuario("No tiene");
-            
+
             if (m.actualizarMedico(idMedico)) {
                 if (m.obtenerMedico(idMedico) == false) {
                     respuesta += "\"actualizarMedico\":false,";
@@ -104,6 +105,24 @@
             } else {
                 respuesta += "\"actualizarMedico\":false";
             }
+        } else if (proceso.equals("acceder")) {
+            String usuario = request.getParameter("usuario");
+            String contrasena = request.getParameter("contrasena");
+
+            Medico m = new Medico();
+
+            m.setUsuario(usuario);
+            m.setContraseña(contrasena);
+
+            ArrayList<Medico> lista = m.accederMedico(usuario, contrasena);
+
+            if (lista.isEmpty()) {
+                respuesta += "\"acceder\":false";
+            } else {
+                respuesta += "\"acceder\":true,";
+                respuesta += "\"Medicos\":" + new Gson().toJson(lista);
+            }
+
         }
 
     } else {
