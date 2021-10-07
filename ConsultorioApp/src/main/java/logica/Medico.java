@@ -34,9 +34,12 @@ public class Medico {
     }
 
     public Medico() {
+    }
+    
+    public void setConexion(){
         this.conexion = new ConexionDB();
     }
-
+    
     public Medico(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String usuario, String contraseña, String fotoUsuario, String firma) {
         this.conexion = new ConexionDB();
         this.primerNombre = primerNombre;
@@ -122,6 +125,9 @@ public class Medico {
     }
 
     public boolean guardarMedico() {
+        if(this.conexion == null){
+            this.setConexion();
+        }
         String sentencia = "INSERT INTO medico (primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contraseña, fotoUsuario, firma) "
                 + "VALUES ('" + this.primerNombre + "','" + this.segundoNombre + "','" + this.primerApellido + "','" + this.segundoApellido + "','" 
                 + this.usuario + "','" + this.contraseña + "','" + this.fotoUsuario + "','" + this.firma + "');";
@@ -130,6 +136,9 @@ public class Medico {
     }
 
     public ArrayList<Medico> listaMedicos() {
+        if(this.conexion == null){
+            this.setConexion();
+        }
         ArrayList<Medico> listaMedicos = new ArrayList<>();
         String sentencia = "SELECT * FROM medico;";
         ResultSet rs = this.conexion.consultarBD(sentencia);
@@ -154,6 +163,9 @@ public class Medico {
 
     // No se puede modificar el retorno de esta función
     public boolean obtenerMedico(String idMedico) {
+        if(this.conexion == null){
+            this.setConexion();
+        }
         String sentencia = "SELECT * FROM medico WHERE idMedico = '" + idMedico + "';";
         ResultSet rs = this.conexion.consultarBD(sentencia);
         try {
@@ -177,6 +189,9 @@ public class Medico {
     }
     
     public boolean actualizarMedico(String id){
+        if(this.conexion == null){
+            this.setConexion();
+        }
         String sentencia = "UPDATE medico SET primerNombre = '" + this.primerNombre + "', segundoNombre = '" + this.segundoNombre 
                 + "', primerApellido = '" + this.primerApellido + "', segundoApellido = '" + this.segundoApellido 
                 + "', usuario = '" + this.usuario + "', contraseña = '" + this.contraseña + "', fotoUsuario = '" + this.fotoUsuario + "', firma = '" + this.firma 
@@ -186,9 +201,31 @@ public class Medico {
     }
     
     public boolean borrarMedico(String idMedico){
+        if(this.conexion == null){
+            this.setConexion();
+        }
         String sentencia = "DELETE FROM medico WHERE idMedico = '" + idMedico + "'";
         
         return this.conexion.borrarBD(sentencia);
+    }
+    
+    public ArrayList<Medico> accederMedico(String usuario, String contrasena) {
+        if(this.conexion == null){
+            this.setConexion();
+        }
+        ArrayList<Medico> listaMedicos = new ArrayList<>();
+        String sentencia = "SELECT * FROM medico WHERE usuario = '" + usuario + "' and contraseña = '" + contrasena + "';";
+        ResultSet rs = this.conexion.consultarBD(sentencia);
+        Medico medico = new Medico();
+        try {
+            while (rs.next()) {
+                medico.setIdMedico(rs.getInt("idMedico"));
+                listaMedicos.add(medico);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error en la consulta a la bd: " + ex.getMessage());
+        }
+        return listaMedicos;
     }
     
 //    public static void main(String[] args){
