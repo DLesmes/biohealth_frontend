@@ -26,7 +26,7 @@
                 <a class="nav-link" href="#">Listar Medicos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact_us.jsp">Contactanos</a>
+                <a class="nav-link" href="contact_us.jsp">Contáctanos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"><img src="assets/pngegg.png".class="img-fluid" width="40px" height="40px" alt="" ></a>
