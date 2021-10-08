@@ -82,7 +82,7 @@
                 padding-bottom: 10px;
                 color: #ffffff;
                 text-decoration: none;
-                border-bottom: solid 2px #09beaf;
+                border-bottom: solid 4px #09beaf;
                 transition: all .25s ease;
                 cursor: pointer
             }
@@ -99,7 +99,7 @@
                 cursor: pointer;
                 color: #ffffff;
                 text-decoration: none;
-                border-bottom: solid 2px #09beaf;
+                border-bottom: solid 4px #09beaf;
                 padding-bottom: 10px
             }
 
@@ -135,7 +135,7 @@
                 padding-right: 37px;
                 padding-top: 40px;
                 position: relative;
-                top: -328px;
+                top: -312px;
                 left: 400px;
                 opacity: 0;
                 transition: all .5s ease
@@ -320,26 +320,28 @@
                 float: left;
                 font-weight: 700;
                 text-transform: uppercase;
-                font-size: 13px;
+                font-size: 12px;
                 text-align: center;
                 color: #ffffff;
-                padding-top: 8px;
                 width: 100%;
-                height: 30px;
+                height: 32px;
                 border: none;
                 border-radius: 20px;
                 margin-top: 23px;
-                background-color: #09beaf
+                background-color: #09beaf;
             }
 
             .btn-acceder {
                 float: left;
-                padding-top: 8px;
                 width: 100%;
-                height: 30px;
+                height: 32px;
                 border: none;
                 border-radius: 20px;
-                margin-top: -8px
+                margin-top: -8px;
+                font-weight: 700;
+                background-color: #09beaf;
+                color: #ffffff;
+
             }
 
             .btn-animate {
