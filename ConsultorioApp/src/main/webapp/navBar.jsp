@@ -17,13 +17,13 @@
                 <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Mi perfil</a>
+                <a class="nav-link" href="perfil.jsp">Mi perfil</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Agenda</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Listar Medicos</a>
+                <a class="nav-link" href="listener.jsp">Listar Medicos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact_us.jsp">Contáctanos</a>
