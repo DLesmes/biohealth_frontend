@@ -4,7 +4,8 @@
     Author     : MILLER & NATHALIA
 
 --%>
-<html><head>
+<html>
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Loggin</title>
@@ -12,7 +13,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="" rel="stylesheet">
+        <link rel="shortcut icon" type="image/jpg" href="LogoConsul.jpg"/>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <style>
             html,body * {
@@ -582,7 +583,7 @@
                 <div>
                     <div class="cover-photo"></div>
                     <div class="profile-photo"></div>
-                    <h1 class="welcome"> Bienvenido! </h1> <a class="btn-goback" value="Refresh" onclick="history.go()">Go back</a>
+                    <h1 class="welcome"> Bienvenido! </h1> <a class="btn-goback" value="Refresh" onclick="history.go()" hidden>Go back</a>
                 </div>
             </div> <a id="refresh" value="Refresh" onclick="history.go()"> <svg class="refreshicon" version="1.1" id="Capa_1" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 322.447 322.447" style="enable-background:new 0 0 322.447 322.447;" xml:space="preserve">
                 <path d="M321.832,230.327c-2.133-6.565-9.184-10.154-15.75-8.025l-16.254,5.281C299.785,206.991,305,184.347,305,161.224 c0-84.089-68.41-152.5-152.5-152.5C68.411,8.724,0,77.135,0,161.224s68.411,152.5,152.5,152.5c6.903,0,12.5-5.597,12.5-12.5 c0-6.902-5.597-12.5-12.5-12.5c-70.304,0-127.5-57.195-127.5-127.5c0-70.304,57.196-127.5,127.5-127.5 c70.305,0,127.5,57.196,127.5,127.5c0,19.372-4.371,38.337-12.723,55.568l-5.553-17.096c-2.133-6.564-9.186-10.156-15.75-8.025 c-6.566,2.134-10.16,9.186-8.027,15.751l14.74,45.368c1.715,5.283,6.615,8.642,11.885,8.642c1.279,0,2.582-0.198,3.865-0.614 l45.369-14.738C320.371,243.946,323.965,236.895,321.832,230.327z"></path> </svg> </a>
@@ -591,17 +592,15 @@
         <script>
                 $(function () {
                     $(".btn").click(function () {
-                        $(".form-acceder").toggleClass("form-acceder-left");
-                        $(".form-registrarse").toggleClass("form-registrarse-left");
-                        $(".frame").toggleClass("frame-long");
-                        $(".registrarse-inactive").toggleClass("registrarse-active");
-                        $(".acceder-active").toggleClass("acceder-inactive");
-                        $(".forgot").toggleClass("forgot-left");
-                        $(this).removeClass("idle").addClass("active");
+                        cambiarALogin();
                     });
                 });
 
                 $(document).ready(function () {
+                    cambiarALogin();
+                });
+
+                function cambiarALogin() {
                     $(".form-acceder").toggleClass("form-acceder-left");
                     $(".form-registrarse").toggleClass("form-registrarse-left");
                     $(".frame").toggleClass("frame-long");
@@ -609,7 +608,7 @@
                     $(".acceder-active").toggleClass("acceder-inactive");
                     $(".forgot").toggleClass("forgot-left");
                     $(this).removeClass("idle").addClass("active");
-                });
+                }
 
                 /*$(function () {
                  $(".btn-registrarse").click(function () {
@@ -653,11 +652,10 @@
                             fotoUsuario: mc.fotoUsuario
                         };
                         //console.log(params);
-                        if (mc.primerNombre === undefined ||
-                                mc.segundoNombre === undefined || mc.primerApellido === undefined ||
+                        if (mc.primerNombre === undefined || mc.primerApellido === undefined ||
                                 mc.segundoApellido === undefined || mc.usuario === undefined ||
-                                mc.contrasena === undefined || mc.primerNombre === '' ||
-                                mc.segundoNombre === '' || mc.primerApellido === '' ||
+                                mc.contrasena === undefined || mc.primerNombre === ''
+                                || mc.primerApellido === '' ||
                                 mc.segundoApellido === '' || mc.usuario === '' ||
                                 mc.contrasena === '' || mc.firma === '') {
 
@@ -685,6 +683,7 @@
                                     } else {
                                         Swal.fire('Ups!', 'No se ha podido crear tu perfil. ' + res.data.registro + '!', 'error');
                                     }
+
                                 } else {
                                     Swal.fire('Ups!', res.data.errorMsg, 'error');
                                 }

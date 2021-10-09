@@ -29,17 +29,17 @@ public class Medico {
 
     @Override
     public String toString() {
-        return "Medico{" + "primerNombre=" + primerNombre + ", segundoNombre=" + segundoNombre + ", primerApellido=" + primerApellido + ", segundoApellido=" + segundoApellido 
+        return "Medico{" + "primerNombre=" + primerNombre + ", segundoNombre=" + segundoNombre + ", primerApellido=" + primerApellido + ", segundoApellido=" + segundoApellido
                 + ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", fotoUsuario=" + fotoUsuario + ", firma=" + firma + '}';
     }
 
     public Medico() {
     }
-    
-    public void setConexion(){
+
+    public void setConexion() {
         this.conexion = new ConexionDB();
     }
-    
+
     public Medico(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String usuario, String contraseña, String fotoUsuario, String firma) {
         this.conexion = new ConexionDB();
         this.primerNombre = primerNombre;
@@ -125,26 +125,27 @@ public class Medico {
     }
 
     public boolean guardarMedico() {
-        if(this.conexion == null){
+        if (this.conexion == null) {
             this.setConexion();
         }
         String sentencia = "INSERT INTO medico (primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contraseña, fotoUsuario, firma) "
-                + "VALUES ('" + this.primerNombre + "','" + this.segundoNombre + "','" + this.primerApellido + "','" + this.segundoApellido + "','" 
+                + "VALUES ('" + this.primerNombre + "','" + this.segundoNombre + "','" + this.primerApellido + "','" + this.segundoApellido + "','"
                 + this.usuario + "','" + this.contraseña + "','" + this.fotoUsuario + "','" + this.firma + "');";
 
         return this.conexion.insertarBD(sentencia);
     }
 
     public ArrayList<Medico> listaMedicos() {
-        if(this.conexion == null){
+        if (this.conexion == null) {
             this.setConexion();
         }
         ArrayList<Medico> listaMedicos = new ArrayList<>();
         String sentencia = "SELECT * FROM medico;";
         ResultSet rs = this.conexion.consultarBD(sentencia);
-        Medico medico = new Medico();
         try {
             while (rs.next()) {
+                Medico medico = new Medico();
+
                 medico.setPrimerNombre(rs.getString("primerNombre"));
                 medico.setSegundoNombre(rs.getString("segundoNombre"));
                 medico.setPrimerApellido(rs.getString("primerApellido"));
@@ -163,7 +164,7 @@ public class Medico {
 
     // No se puede modificar el retorno de esta función
     public boolean obtenerMedico(String idMedico) {
-        if(this.conexion == null){
+        if (this.conexion == null) {
             this.setConexion();
         }
         String sentencia = "SELECT * FROM medico WHERE idMedico = '" + idMedico + "';";
@@ -187,30 +188,30 @@ public class Medico {
             return false;
         }
     }
-    
-    public boolean actualizarMedico(String id){
-        if(this.conexion == null){
+
+    public boolean actualizarMedico(String id) {
+        if (this.conexion == null) {
             this.setConexion();
         }
-        String sentencia = "UPDATE medico SET primerNombre = '" + this.primerNombre + "', segundoNombre = '" + this.segundoNombre 
-                + "', primerApellido = '" + this.primerApellido + "', segundoApellido = '" + this.segundoApellido 
-                + "', usuario = '" + this.usuario + "', contraseña = '" + this.contraseña + "', fotoUsuario = '" + this.fotoUsuario + "', firma = '" + this.firma 
+        String sentencia = "UPDATE medico SET primerNombre = '" + this.primerNombre + "', segundoNombre = '" + this.segundoNombre
+                + "', primerApellido = '" + this.primerApellido + "', segundoApellido = '" + this.segundoApellido
+                + "', usuario = '" + this.usuario + "', contraseña = '" + this.contraseña + "', fotoUsuario = '" + this.fotoUsuario + "', firma = '" + this.firma
                 + "' WHERE idMedico = '" + id + "';";
 
         return this.conexion.actualizarBD(sentencia);
     }
-    
-    public boolean borrarMedico(String idMedico){
-        if(this.conexion == null){
+
+    public boolean borrarMedico(String idMedico) {
+        if (this.conexion == null) {
             this.setConexion();
         }
         String sentencia = "DELETE FROM medico WHERE idMedico = '" + idMedico + "'";
-        
+
         return this.conexion.borrarBD(sentencia);
     }
-    
+
     public ArrayList<Medico> accederMedico(String usuario, String contrasena) {
-        if(this.conexion == null){
+        if (this.conexion == null) {
             this.setConexion();
         }
         ArrayList<Medico> listaMedicos = new ArrayList<>();
@@ -227,14 +228,14 @@ public class Medico {
         }
         return listaMedicos;
     }
-    
-//    public static void main(String[] args){
-//        Medico medico1 = new Medico("Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba");
-//        Medico medico2 = new Medico();
+
+    public static void main(String[] args) {
+        //Medico medico1 = new Medico("Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba");
+        Medico medico2 = new Medico();
 //        medico1.guardarMedico();
 //        medico1.actualizarMedico(2);
 //        medico2.borrarMedico(1);
-//        System.out.println(medico2.listaMedicos());
-//        System.out.println(medico1.obtenerMedico().toString());
-//    }
+        System.out.println(medico2.listaMedicos());
+        //System.out.println(medico1.obtenerMedico().toString());
+    }
 }
