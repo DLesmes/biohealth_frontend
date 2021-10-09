@@ -43,6 +43,7 @@
                                 <div class="col-md-6">
                                     <label>Primer nombre:</label>
                                     <input type="text" class="form-control" ng-model="mc.primerNombre">
+                                    <input type="text" class="form-control" value="{{mc.primerNombre}}">
                                 </div>
                                 <div class="col-md-6">
                                     <label>Segundo nombre:</label>
