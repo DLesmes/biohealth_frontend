@@ -4,7 +4,8 @@
     Author     : MILLER & NATHALIA
 
 --%>
-<html><head>
+<html>
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Loggin</title>
@@ -12,7 +13,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="" rel="stylesheet">
+        <link rel="shortcut icon" type="image/jpg" href="LogoConsul.jpg"/>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <style>
             html,body * {
@@ -82,7 +83,7 @@
                 padding-bottom: 10px;
                 color: #ffffff;
                 text-decoration: none;
-                border-bottom: solid 2px #09beaf;
+                border-bottom: solid 4px #09beaf;
                 transition: all .25s ease;
                 cursor: pointer
             }
@@ -99,7 +100,7 @@
                 cursor: pointer;
                 color: #ffffff;
                 text-decoration: none;
-                border-bottom: solid 2px #09beaf;
+                border-bottom: solid 4px #09beaf;
                 padding-bottom: 10px
             }
 
@@ -135,7 +136,7 @@
                 padding-right: 37px;
                 padding-top: 40px;
                 position: relative;
-                top: -328px;
+                top: -312px;
                 left: 400px;
                 opacity: 0;
                 transition: all .5s ease
@@ -320,26 +321,28 @@
                 float: left;
                 font-weight: 700;
                 text-transform: uppercase;
-                font-size: 13px;
+                font-size: 12px;
                 text-align: center;
                 color: #ffffff;
-                padding-top: 8px;
                 width: 100%;
-                height: 30px;
+                height: 32px;
                 border: none;
                 border-radius: 20px;
                 margin-top: 23px;
-                background-color: #09beaf
+                background-color: #09beaf;
             }
 
             .btn-acceder {
                 float: left;
-                padding-top: 8px;
                 width: 100%;
-                height: 30px;
+                height: 32px;
                 border: none;
                 border-radius: 20px;
-                margin-top: -8px
+                margin-top: -8px;
+                font-weight: 700;
+                background-color: #09beaf;
+                color: #ffffff;
+
             }
 
             .btn-animate {
@@ -589,17 +592,15 @@
         <script>
                 $(function () {
                     $(".btn").click(function () {
-                        $(".form-acceder").toggleClass("form-acceder-left");
-                        $(".form-registrarse").toggleClass("form-registrarse-left");
-                        $(".frame").toggleClass("frame-long");
-                        $(".registrarse-inactive").toggleClass("registrarse-active");
-                        $(".acceder-active").toggleClass("acceder-inactive");
-                        $(".forgot").toggleClass("forgot-left");
-                        $(this).removeClass("idle").addClass("active");
+                        cambiarALogin();
                     });
                 });
 
                 $(document).ready(function () {
+                    cambiarALogin();
+                });
+
+                function cambiarALogin() {
                     $(".form-acceder").toggleClass("form-acceder-left");
                     $(".form-registrarse").toggleClass("form-registrarse-left");
                     $(".frame").toggleClass("frame-long");
@@ -607,7 +608,7 @@
                     $(".acceder-active").toggleClass("acceder-inactive");
                     $(".forgot").toggleClass("forgot-left");
                     $(this).removeClass("idle").addClass("active");
-                });
+                }
 
                 /*$(function () {
                  $(".btn-registrarse").click(function () {
@@ -651,11 +652,10 @@
                             fotoUsuario: mc.fotoUsuario
                         };
                         //console.log(params);
-                        if (mc.primerNombre === undefined ||
-                                mc.segundoNombre === undefined || mc.primerApellido === undefined ||
+                        if (mc.primerNombre === undefined || mc.primerApellido === undefined ||
                                 mc.segundoApellido === undefined || mc.usuario === undefined ||
-                                mc.contrasena === undefined || mc.primerNombre === '' ||
-                                mc.segundoNombre === '' || mc.primerApellido === '' ||
+                                mc.contrasena === undefined || mc.primerNombre === ''
+                                || mc.primerApellido === '' ||
                                 mc.segundoApellido === '' || mc.usuario === '' ||
                                 mc.contrasena === '' || mc.firma === '') {
 
@@ -683,6 +683,7 @@
                                     } else {
                                         Swal.fire('Ups!', 'No se ha podido crear tu perfil. ' + res.data.registro + '!', 'error');
                                     }
+
                                 } else {
                                     Swal.fire('Ups!', res.data.errorMsg, 'error');
                                 }
