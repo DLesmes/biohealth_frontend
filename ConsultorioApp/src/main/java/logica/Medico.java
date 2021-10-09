@@ -146,6 +146,7 @@ public class Medico {
             while (rs.next()) {
                 Medico medico = new Medico();
 
+                medico.setIdMedico(rs.getInt("idMedico"));
                 medico.setPrimerNombre(rs.getString("primerNombre"));
                 medico.setSegundoNombre(rs.getString("segundoNombre"));
                 medico.setPrimerApellido(rs.getString("primerApellido"));

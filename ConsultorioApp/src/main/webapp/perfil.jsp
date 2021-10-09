@@ -161,38 +161,38 @@
 
                 <div class="form" ng-app="ConsultorioApp" ng-controller="medicosController as mc">
                     <p class="subtitle">Informacion de la Cuenta</p>
-                    <label class="label">Primer nombre</label>
+                    <label class="label">Primer nombre*</label>
                     <input type="text" class="input" placeholder="Primer Nombre" ng-model="mc.primerNombre">
 
                     <label class="label">Segundo Nombre</label>
-                    <input type="text" class="input" placeholder="Primer Nombre" ng-model="mc.segundoNombre">
+                    <input type="text" class="input" placeholder="Segundo Nombre" ng-model="mc.segundoNombre">
 
-                    <label class="label">Primer Apellido</label>
-                    <input type="text" class="input" placeholder="Primer Nombre" ng-model="mc.primerApellido">
+                    <label class="label">Primer Apellido*</label>
+                    <input type="text" class="input" placeholder="Primer Apellido" ng-model="mc.primerApellido">
 
-                    <label class="label">Segundo Apellido</label>
-                    <input type="text" class="input" placeholder="Primer Nombre" ng-model="mc.segundoApellido">
+                    <label class="label">Segundo Apellido*</label>
+                    <input type="text" class="input" placeholder="Segundo Apellido" ng-model="mc.segundoApellido">
 
 
-                    <label class="label">Nombre de usuario</label>
+                    <label class="label">Nombre de usuario*</label>
                     <input type="text" class="input" placeholder="Usuario" ng-model="mc.usuario">
 
 
-                    <label class="label">Contraseña</label>
+                    <label class="label">Contraseña*</label>
                     <input type="password" class="input" placeholder="Contraseña" ng-model="mc.contrasena">
 
                     <label class="label">Firma</label>
                     <input type="text" class="input" placeholder="Firma" ng-model="mc.firma">
 
-                    <label class="label">ID Médico</label>
+                    <label class="label">ID Médico*</label>
                     <input type="text" class="input" placeholder="ID Médico" ng-model="mc.idMedico">
 
                     <div class="row">
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-success" ng-click="mc.actualizarMedico()">Actualizar datos</button>
+                            <button type="button" class="btn btn-success" ng-click="mc.actualizarMedico()" title="Para actualizar un registro debes colocar el ID del médico que quieras actualizar y diligenciar los campos obligatorios">Actualizar datos</button>
                         </div>
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-danger" ng-click="mc.eliminarMedico()">Eliminar cuenta</button>
+                            <button type="button" class="btn btn-danger" ng-click="mc.eliminarMedico()" title="Para eliminar un registro debes colocar el ID del médico que quieras eliminar">Eliminar cuenta</button>
                         </div>
                     </div>
                     <br>
@@ -270,7 +270,7 @@
                             mc.segundoApellido === '' || mc.usuario === '' ||
                             mc.contrasena === '') {
 
-                        Swal.fire('Ups!', 'Todos los campos son obligatorios!', 'error');
+                        Swal.fire('Ups!', 'Hay campos obligatorios vacíos!', 'error');
                     } else {
                         console.log(params);
                         $http({
@@ -281,7 +281,7 @@
                             console.log(res);
                             if (res.data.ok === true) {
                                 if (res.data[params.proceso] === true) {
-                                    Swal.fire('Excelente!', 'Tu perfil ha sido actualizado!', 'success');
+                                    Swal.fire('Excelente!', 'El perfil de ID: ' + mc.idMedico + ' ha sido actualizado!', 'success');
                                 } else {
                                     Swal.fire('Ups!', 'No se ha podido actualizar tu perfil. ' + res.data.registro + '!', 'error');
                                 }

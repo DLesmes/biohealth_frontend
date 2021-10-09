@@ -49,18 +49,22 @@
                                 <table class="table table-striped table-light">
                                     <thead class="thead-dark">
                                         <tr>
+                                            <th>ID Médico</th>
                                             <th>Primer Nombre</th>
                                             <th>Segundo Nombre</th>
                                             <th>Primer Apellido</th>
                                             <th>Segundo Apellido</th>
+                                            <th>Usuario</th>
                                             <th>Firma</th>
                                         </tr>                                
                                     </thead>                            
                                     <tr ng-repeat="medico in mc.listaMedicos">
+                                        <td>{{ (medico.idMedico != "null") ? medico.idMedico : ''}}</td>
                                         <td>{{ (medico.primerNombre != "null") ? medico.primerNombre : ''}}</td>
                                         <td>{{ (medico.segundoNombre != "null") ? medico.segundoNombre : ''}}</td>
                                         <td>{{ (medico.primerApellido != "null") ? medico.primerApellido : ''}}</td>
                                         <td>{{ (medico.segundoApellido != "null") ? medico.segundoApellido : ''}}</td>
+                                        <td>{{ (medico.usuario != "null") ? medico.usuario : ''}}</td>
                                         <td>{{ (medico.firma != "null") ? medico.firma : ''}}</td>
                                     </tr>
                                 </table>
