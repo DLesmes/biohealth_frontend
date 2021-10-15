@@ -1,7 +1,7 @@
 # [ConsultorioOnline](https://gitlab.com/DLesmes/ConsultorioOnline_G1S33UIS/-/blob/main/README.md) 
 #### Grupo 1 del curso Desarrollo de Software (S33) de la [Universidad Industrial de Santander](https://lms.uis.edu.co/) (UIS) Dentro del marco del programa [MisiónTic2022](https://www.misiontic2022.gov.co/portal/)
 
-Este repositorio es el código fuente de una **aplicación web** en **Java** para el backend y **Angular** (HTML, CSS, Javascript) para el Frontend, deplegado a travpes de un servidor web local [Tomcat](http://tomcat.apache.org/)
+Este repositorio es el código fuente de una **aplicación web** en **Java** para el backend y **Angular** (HTML, CSS, Javascript) para el Frontend, desplegado a través de un servidor web local [Tomcat](http://tomcat.apache.org/)
 
 El proyecto se distribuye en dos carpetas:
 ## [Webapp](https://gitlab.com/DLesmes/ConsultorioOnline_G1S33UIS/-/tree/main/ConsultorioApp/src/main/webapp)
