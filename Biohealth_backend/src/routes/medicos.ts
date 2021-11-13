@@ -9,7 +9,7 @@ const medicosRoutes = (app) =>{
     router.get('/getMedico/:id', getMedico);
     router.post('/addMedico', addMedico);
     router.put('/updateMedico/:id', updateMedico);
-    router.delete('/eliminarCancion/:id', deleteMedico);
+    router.delete('/deleteMedico/:id', deleteMedico);
 }
 
 export default medicosRoutes;
