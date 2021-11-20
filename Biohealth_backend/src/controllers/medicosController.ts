@@ -1,7 +1,7 @@
 
 import executeQuery from "../services/mysql.service"
 
-const getMedicos = async (req, res) => {
+const getMedicos = async (req, res, next) => {
     try{
         const response = await executeQuery('SELECT * FROM medico');
         const data = {
@@ -10,12 +10,11 @@ const getMedicos = async (req, res) => {
         }
         res.json(data);
     }catch(error){
-        console.log(error);
-        res.status(500).send(error);
+        next(error);
     }
 }
 
-const getMedico = (req, res) => {
+const getMedico = (req, res, next) => {
     const {id} = req.params;
     executeQuery(`SELECT * FROM medico WHERE idMedico = ${id}`).then((response) => {
         const data = {
@@ -24,23 +23,21 @@ const getMedico = (req, res) => {
         }
         res.json(data);
     }).catch((error) => {
-        console.log(error);
-        res.status(500).send(error);
+        next(error);
     });
 }
 
-const addMedico = async(req, res) => {
+const addMedico = async(req, res, next) => {
     const {primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contraseña, fotoUsuario, firma} = req.body;
     try{
         const response = await executeQuery(`INSERT INTO medico (primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contraseña, fotoUsuario, firma) VALUES ('${primerNombre}', '${segundoNombre}', '${primerApellido}', '${segundoApellido}', '${usuario}', '${contraseña}', '${fotoUsuario}', '${firma}')`);
         res.status(201).json({message: 'created', id: response.insertId});
     }catch(error){
-        console.log(error);
-        res.status(500).send(error);
+        next(error);
     }
 }
 
-const updateMedico = async(req, res) => {
+const updateMedico = async(req, res,next) => {
     const {primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contraseña, fotoUsuario, firma} = req.body;
     try{
         const response = await executeQuery(`UPDATE medico SET primerNombre = '${primerNombre}', segundoNombre = '${segundoNombre}', primerApellido = '${primerApellido}', segundoApellido = '${segundoApellido}', usuario = '${usuario}', contraseña = '${contraseña}', fotoUsuario = '${fotoUsuario}', firma = '${firma}' WHERE idMedico = ${req.params.id}`);
@@ -51,12 +48,11 @@ const updateMedico = async(req, res) => {
             res.status(404).json({message: `No existe registro con id: ${req.params.id}`})
         }
     }catch(error){
-        console.log(error);
-        res.status(500).send(error);
+        next(error);
     }
 }
 
-const deleteMedico = async(req, res) => {
+const deleteMedico = async(req, res, next) => {
     try{
         const response = await executeQuery(`DELETE FROM medico WHERE idMedico = ${req.params.id}`);
         console.log(response);
@@ -66,8 +62,7 @@ const deleteMedico = async(req, res) => {
             res.status(404).json({message: `No existe registro con id: ${req.params.id}`})
         }
     }catch(error){
-        console.log(error);
-        res.status(500).send(error);
+        next(error);
     }
 }
 
