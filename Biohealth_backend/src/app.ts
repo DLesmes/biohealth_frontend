@@ -1,7 +1,6 @@
 import express from 'express';
 import medicosRoutes from './routes/medicos';
-import errorHandler from './middlerwares/erros';
-import validarRol from './middlerwares/validarRol';
+import config from './config/config';
 
 const app = express();
 const port = 3000;
@@ -15,6 +14,6 @@ medicosRoutes(app);
 app.use(errorHandler);
 
 
-app.listen(port, () => {
-return console.log(`servidor corriendo sobre el puerto ${port}`)
+app.listen(config.PORT, () => {
+    return console.log(`servidor corriendo sobre el puerto ${config.PORT}`)
 });
