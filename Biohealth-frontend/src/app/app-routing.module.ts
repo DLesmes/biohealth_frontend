@@ -5,9 +5,11 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { ListarCitasComponent } from './components/listar-citas/listar-citas.component';
 import { CrearMedicoComponent } from './components/crear-medico/crear-medico.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 const routes: Routes = [
   {path:'medicos', component: ListarMedicosComponent},
+  {path:'perfil', component:PerfilComponent },
   {path:'contacto', component: ContactoComponent},
   {path:'citas', component:ListarCitasComponent},
   {path:'crear-medico', component:CrearMedicoComponent},
