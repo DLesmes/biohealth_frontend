@@ -13,6 +13,8 @@ import { CrearMedicoComponent } from './components/crear-medico/crear-medico.com
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MedicosService } from './services/medicos/medicos.service';
+import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
+import { CrearCitaComponent } from './components/crear-cita/crear-cita.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MedicosService } from './services/medicos/medicos.service';
     ContactoComponent,
     ListarCitasComponent,
     CrearMedicoComponent,
-    PerfilComponent
+    PerfilComponent,
+    EditarPerfilComponent,
+    CrearCitaComponent
   ],
   imports: [
     BrowserModule,
