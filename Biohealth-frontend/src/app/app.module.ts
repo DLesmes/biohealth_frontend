@@ -11,6 +11,7 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { ListarCitasComponent } from './components/listar-citas/listar-citas.component';
 import { CrearMedicoComponent } from './components/crear-medico/crear-medico.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     ContactoComponent,
     ListarCitasComponent,
     CrearMedicoComponent,
-    PerfilComponent
+    PerfilComponent,
+    EditarPerfilComponent
   ],
   imports: [
     BrowserModule,
