@@ -11,6 +11,8 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { ListarCitasComponent } from './components/listar-citas/listar-citas.component';
 import { CrearMedicoComponent } from './components/crear-medico/crear-medico.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MedicosService } from './services/medicos/medicos.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,10 @@ import { PerfilComponent } from './components/perfil/perfil.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [MedicosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
