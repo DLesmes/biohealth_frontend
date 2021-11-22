@@ -12,6 +12,7 @@ import { ListarCitasComponent } from './components/listar-citas/listar-citas.com
 import { CrearMedicoComponent } from './components/crear-medico/crear-medico.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
+import { CrearCitaComponent } from './components/crear-cita/crear-cita.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.
     ListarCitasComponent,
     CrearMedicoComponent,
     PerfilComponent,
-    EditarPerfilComponent
+    EditarPerfilComponent,
+    CrearCitaComponent
   ],
   imports: [
     BrowserModule,

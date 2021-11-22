@@ -7,6 +7,7 @@ import { ListarCitasComponent } from './components/listar-citas/listar-citas.com
 import { CrearMedicoComponent } from './components/crear-medico/crear-medico.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
+import { CrearCitaComponent } from './components/crear-cita/crear-cita.component';
 
 const routes: Routes = [
   {path:'medicos', component: ListarMedicosComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'citas', component:ListarCitasComponent},
   {path:'crear-medico', component:CrearMedicoComponent},
   {path:'editar-perfil', component:EditarPerfilComponent},
+  {path:'crear-cita', component:CrearCitaComponent},
   {path:'**', component: NotFoundComponent}
 ];
 
