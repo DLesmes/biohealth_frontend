@@ -23,7 +23,7 @@ export class MedicosService {
     const url = `${environment.apiUrl}/addMedico`;
     return this.http.post(url, medico).toPromise();    
   }
-  public actualizarMedico(medico: Medicomodel, id: number): Promise<any>{
+  public actualizarMedico(medico: Medicomodel): Promise<any>{
     const url = `${environment.apiUrl}/updateMedico/${medico.idMedico}`
     return this.http.put(url, medico).toPromise();    
   }
