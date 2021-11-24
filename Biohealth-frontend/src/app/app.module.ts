@@ -17,6 +17,7 @@ import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.
 import { CrearCitaComponent } from './components/crear-cita/crear-cita.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './components/error/error.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
