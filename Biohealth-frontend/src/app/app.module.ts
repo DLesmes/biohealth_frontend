@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MedicosService } from './services/medicos/medicos.service';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { CrearCitaComponent } from './components/crear-cita/crear-cita.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CrearCitaComponent } from './components/crear-cita/crear-cita.component
     CrearMedicoComponent,
     PerfilComponent,
     EditarPerfilComponent,
-    CrearCitaComponent
+    CrearCitaComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

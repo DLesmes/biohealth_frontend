@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Medicomodel } from 'src/app/models/medico';
+import { MedicosService } from '../../services/medicos/medicos.service';
+
 
 @Component({
   selector: 'app-listar-medicos',
@@ -7,9 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarMedicosComponent implements OnInit {
 
-  constructor() { }
+  public medicos: Medicomodel[] = [];
 
-  ngOnInit(): void {
+  constructor(private medicosService: MedicosService, private router: Router) { }
+
+  async ngOnInit(): Promise<void>{
+   this.medicos = await this.obtenerMedicos();
+   console.log(this.medicos);
+    
+  }
+
+  public async obtenerMedicos(): Promise<any>{
+    try{
+      const response = await this.medicosService.obtenerMedicos();
+      return response.datos;
+    }catch(error){
+      this.router.navigate(['/error']);
+    }
+    
+  }
+
+  public eliminarMedico(id:number){
+    this.medicosService.eliminarMedico(id).then(async response =>{
+      if(response.message === 'deleted'){
+        this.medicos = await this.obtenerMedicos();
+        alert('Medico eliminado correctamente');
+      }
+    }).catch(error => {
+      this.router.navigate(['/error']);
+    })
   }
 
 }
