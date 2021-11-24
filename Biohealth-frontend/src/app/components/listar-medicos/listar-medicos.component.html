@@ -26,7 +26,7 @@
                             <td>{{medico.segundoApellido}}</td>
                             <td>{{medico.usuario}}</td>
                             <td>
-                                <i class="fas fa-edit" ></i>
+                                <i class="fas fa-edit" (click)="irActualizarMedico(medico)"></i>
                                 <i class="fas fa-trash" (click)="eliminarMedico(medico.idMedico)" ></i>
                             </td>
                           </tr>

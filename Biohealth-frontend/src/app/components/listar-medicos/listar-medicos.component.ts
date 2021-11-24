@@ -16,9 +16,9 @@ export class ListarMedicosComponent implements OnInit {
   constructor(private medicosService: MedicosService, private router: Router) { }
 
   async ngOnInit(): Promise<void>{
-   this.medicos = await this.obtenerMedicos();
-   console.log(this.medicos);
-    
+    localStorage.clear();
+    this.medicos = await this.obtenerMedicos();
+      
   }
 
   public async obtenerMedicos(): Promise<any>{
@@ -40,6 +40,11 @@ export class ListarMedicosComponent implements OnInit {
     }).catch(error => {
       this.router.navigate(['/error']);
     })
+  }
+
+  public irActualizarMedico(medico: Medicomodel){
+    localStorage.setItem('medicoActulizar', JSON.stringify(medico));
+    this.router.navigate(['/crear-medico']);
   }
 
 }
