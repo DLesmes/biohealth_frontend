@@ -16,6 +16,7 @@ import { MedicosService } from './services/medicos/medicos.service';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { CrearCitaComponent } from './components/crear-cita/crear-cita.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CrearMedicoComponent,
     PerfilComponent,
     EditarPerfilComponent,
-    CrearCitaComponent
+    CrearCitaComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
