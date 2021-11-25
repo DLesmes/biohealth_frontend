@@ -17,6 +17,7 @@ import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.
 import { CrearCitaComponent } from './components/crear-cita/crear-cita.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PerfilComponent,
     EditarPerfilComponent,
     CrearCitaComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
