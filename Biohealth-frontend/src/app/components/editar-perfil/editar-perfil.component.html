@@ -15,11 +15,11 @@
                 class="rounded-circle img-fluid"
                 style="width: 150px"
               />
-              <h5 class="my-3">Miller Puentes</h5>
+              <h5 class="my-3">{{perfilActualizar ? perfilActualizar.primerNombre : ''}} {{perfilActualizar ? perfilActualizar.primerApellido : ''}}</h5>
               <p class="text-muted mb-1">Medico General</p>
               <p class="text-muted mb-4">Bucaramanga, Santander</p>
               <div class="d-flex justify-content-center mb-2">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" [disabled]="perfilForm.invalid" (click)="actualizarMedico()">
                   Guardar Cambios
                 </button>
                 <button
@@ -108,7 +108,7 @@
                 </div>
                 <div class="col-sm-9">
                   <input
-                    type="text"
+                    type="password"
                     formControlName="contraseña"
                     placeholder="********"
                   />

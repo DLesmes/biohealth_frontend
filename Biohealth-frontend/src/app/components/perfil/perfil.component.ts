@@ -18,7 +18,7 @@ export class PerfilComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     localStorage.clear();
     this.medico= await this.obtenerMedico(38);
-    console.log(this.medico);
+    
   }
   public async obtenerMedico(id:number): Promise<any> {
     try {

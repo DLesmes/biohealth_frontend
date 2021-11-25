@@ -22,8 +22,6 @@ export class EditarPerfilComponent implements OnInit {
   ngOnInit(): void {
     const actualizar = localStorage.getItem('medicoActualizar');
     this.perfilActualizar = actualizar ? JSON.parse(actualizar) : null;
-    console.log('Hi');
-    console.log(this.perfilActualizar);
     this.buildForm();
   }
   buildForm() {
@@ -40,5 +38,20 @@ export class EditarPerfilComponent implements OnInit {
   }
   modificarPerfil() {
     console.log(this.perfilForm);
+  }
+  public actualizarMedico(){
+    console.log(this.perfilForm.value);
+    const medico: Medicomodel = {
+      idMedico: this.perfilActualizar?.idMedico,
+      ...this.perfilForm.value
+    }
+    this.medicosService.actualizarMedico(medico).then(response => {
+      if(response.message === 'updated'){
+        alert('Medico actualizado correctamente');
+        this.router.navigate(['/perfil']);
+      }
+    }).catch(error => {
+      this.router.navigate(['/error']);
+    })
   }
 }
