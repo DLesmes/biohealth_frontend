@@ -17,7 +17,10 @@ export class MedicosService {
     const url = `${environment.apiUrl}/getMedicos`;
     return this.http.get(url).toPromise();
   }
-  public obtenerMedico(id: number){}
+  public obtenerMedico(id: number): Promise<any>{
+    const url = `${environment.apiUrl}/getMedico/${id}`;
+    return this.http.get(url).toPromise();
+  }
 
   public agregarMedico(medico: any): Promise<any> {
     const url = `${environment.apiUrl}/addMedico`;

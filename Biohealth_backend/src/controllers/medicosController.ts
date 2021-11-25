@@ -28,9 +28,9 @@ const getMedico = (req, res, next) => {
 }
 
 const addMedico = async(req, res, next) => {
-    const {primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contraseña, fotoUsuario, firma} = req.body;
+    const {primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contrasena, fotoUsuario, firma} = req.body;
     try{
-        const response = await executeQuery(`INSERT INTO medico (primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contraseña, fotoUsuario, firma) VALUES ('${primerNombre}', '${segundoNombre}', '${primerApellido}', '${segundoApellido}', '${usuario}', '${contraseña}', '${fotoUsuario}', '${firma}')`);
+        const response = await executeQuery(`INSERT INTO medico (primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contrasena, fotoUsuario, firma) VALUES ('${primerNombre}', '${segundoNombre}', '${primerApellido}', '${segundoApellido}', '${usuario}', '${contrasena}', '${fotoUsuario}', '${firma}')`);
         res.status(201).json({message: 'created', id: response.insertId});
     }catch(error){
         next(error);
@@ -38,9 +38,9 @@ const addMedico = async(req, res, next) => {
 }
 
 const updateMedico = async(req, res,next) => {
-    const {primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contraseña, fotoUsuario, firma} = req.body;
+    const {primerNombre, segundoNombre, primerApellido, segundoApellido, usuario, contrasena, fotoUsuario, firma} = req.body;
     try{
-        const response = await executeQuery(`UPDATE medico SET primerNombre = '${primerNombre}', segundoNombre = '${segundoNombre}', primerApellido = '${primerApellido}', segundoApellido = '${segundoApellido}', usuario = '${usuario}', contraseña = '${contraseña}', fotoUsuario = '${fotoUsuario}', firma = '${firma}' WHERE idMedico = ${req.params.id}`);
+        const response = await executeQuery(`UPDATE medico SET primerNombre = '${primerNombre}', segundoNombre = '${segundoNombre}', primerApellido = '${primerApellido}', segundoApellido = '${segundoApellido}', usuario = '${usuario}', contrasena = '${contrasena}', fotoUsuario = '${fotoUsuario}', firma = '${firma}' WHERE idMedico = ${req.params.id}`);
         console.log(response);
         if(response.affectedRows > 0){
             res.json({message: 'updated'});

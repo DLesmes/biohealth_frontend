@@ -11,11 +11,11 @@
           <div class="card mb-4">
             <div class="card-body text-center">
               <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-chat/ava3.png" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-              <h5 class="my-3">Miller Puentes</h5>
+              <h5 class="my-3">{{medico ? medico.primerNombre : 'xxxx'}} {{medico ? medico.primerApellido : 'xxxx'}}</h5>
               <p class="text-muted mb-1">Medico General</p>
               <p class="text-muted mb-4">Bucaramanga, Santander</p>
               <div class="d-flex justify-content-center mb-2">
-                <button routerLink="/editar-perfil" type="button"  class="btn btn-primary">Actualizar Datos</button>
+                <button type="button" class="btn btn-primary" (click)="medico ? editarMedico(medico):'/perfil'">Actualizar Datos</button>
                 <button type="button" class="btn btn-outline-primary ms-1">Eliminar</button>
               </div>
             </div>
@@ -29,8 +29,9 @@
                 <div class="col-sm-3">
                   <p class="mb-0">Primer Nombre</p>
                 </div>
+
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Miller</p>
+                  <p class="text-muted mb-0">{{medico ? medico.primerNombre : 'xxxx'}}</p>
                 </div>
               </div>
               <hr>
@@ -40,7 +41,7 @@
                 </div>
                 
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Albeiro</p>
+                  <p class="text-muted mb-0">{{medico ? medico.segundoNombre : 'xxxx'}}</p>
                 </div>
               </div>
               <hr>
@@ -49,7 +50,7 @@
                   <p class="mb-0">Primer Apellido</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Puentes</p>
+                  <p class="text-muted mb-0">{{medico ? medico.primerApellido : 'xxxx'}}</p>
                 </div>
               </div>
               <hr>
@@ -58,7 +59,7 @@
                   <p class="mb-0">Segundo Apellido</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Lozano</p>
+                  <p class="text-muted mb-0">{{medico ? medico.segundoApellido : 'xxxx'}}</p>
                 </div>
               </div>
               <hr>
@@ -67,16 +68,7 @@
                   <p class="mb-0">Nombre de Usuario</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Miller007</p>
-                </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Contraseña</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">********</p>
+                  <p class="text-muted mb-0">{{medico ? medico.usuario : 'xxxx'}}</p>
                 </div>
               </div>
               <hr>
@@ -85,19 +77,10 @@
                   <p class="mb-0">Firma</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0"></p>
+                  <p class="text-muted mb-0">{{medico ? medico.firma : 'xxxx'}}</p>
                 </div>
               </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Id Medico</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">1</p>
-                </div>
-              </div>
-              
+                            
             </div>
           </div>
           <div class="row">
