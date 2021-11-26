@@ -32,7 +32,7 @@ export class CrearMedicoComponent implements OnInit {
       primerApellido: [this.medicoActualizar?.primerApellido, Validators.required],
       segundoApellido: [this.medicoActualizar?.segundoNombre, Validators.required],
       usuario: [this.medicoActualizar?.usuario, Validators.required],
-      contraseña:[this.medicoActualizar?.contrasena, Validators.required],
+      contrasena:[this.medicoActualizar?.contrasena, Validators.required],
       fotoUsuario:[this.medicoActualizar?.fotoUsuario, Validators.required],
       firma:[this.medicoActualizar?.firma, Validators.required]
     });
