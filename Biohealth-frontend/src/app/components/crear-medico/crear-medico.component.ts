@@ -57,13 +57,14 @@ export class CrearMedicoComponent implements OnInit {
       ...this.formGroup.value
     }
     this.medicosService.actualizarMedico(medico).then(response =>{
-      if(response.message === 'update'){
+      if(response.message === 'updated'){
         alert('Medico actualizado correctamente');
         this.router.navigate(['/medicos']);
       }
     }).catch(error =>{
       this.router.navigate(['/error']);
     })
+    
   }
 
 }

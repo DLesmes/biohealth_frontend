@@ -43,7 +43,7 @@ export class ListarMedicosComponent implements OnInit {
   }
 
   public irActualizarMedico(medico: Medicomodel){
-    localStorage.setItem('medicoActulizar', JSON.stringify(medico));
+    localStorage.setItem('medicoActualizar', JSON.stringify(medico));
     this.router.navigate(['/crear-medico']);
   }
 

@@ -38,7 +38,7 @@
                         <div class="mb-3">
                             <button  routerLink="/medicos" class="btn btn-secondary btn-lg float-start">VOLVER</button>
                             <button type="submit" class="btn btn-success btn-lg float-end" [disabled]="formGroup.invalid" (click)="agregarMedico()" *ngIf="!medicoActualizar">ACEPTAR</button>
-                            <button type="submit" class="btn btn-success btn-lg float-center" [disabled]="formGroup.invalid" (click)="actualizarMedico" *ngIf="medicoActualizar">ACTUALIZAR</button>
+                            <button type="submit" class="btn btn-success btn-lg float-end" [disabled]="formGroup.invalid" (click)="actualizarMedico()" *ngIf="medicoActualizar">ACTUALIZAR</button>
                         </div>
                         <br>
                         
